@@ -1,0 +1,462 @@
+.central-card-container {
+  width: 50%;
+  height: 70%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  /* Ombre douce pour décoller le carré du fond */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  /* Centrage du contenu à l'intérieur du carré */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  alignItems: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  /* Optionnel : transition fluide si tu décides de changer sa taille plus tard */
+  transition: all 0.3s ease;
+}
+
+/* Style optionnel pour le contenu à l'intérieur */
+.central-card-title {
+  text-align: center;
+  color: #333333;
+  font-family: sans-serif;
+  margin: 0 0 10px 0;
+}
+
+.central-card-text {
+  color: #666666;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+/* Conteneur pour aligner les boutons au départ */
+.buttons-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px; /* Zone pour les boutons */
+}
+
+/* Style de base commun aux deux boutons */
+.btn {
+  padding: 19px 24px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Style spécifique du bouton OUI */
+.btn-yes {
+  background-color: #ffb7c5; /* Rose sakura */
+  color: white;
+}
+
+.btn-yes:hover {
+  background-color: #ff99aa;
+}
+
+/* Style spécifique du bouton NON (qui va bouger) */
+.btn-no {
+  background-color: #eceff1;
+  color: #37474f;
+}
+
+.catGif {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+}
+
+.catContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.secondMessage {
+  color: darkgray;
+  text-align: center;
+}
+
+.cardStyle {
+  width: 70%;
+}
+
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inputStyle {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1.5px solid #ffd0c0;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.inputStyle:focus {
+  border-color: #ff6b8b; /* Devient rose quand on tape dedans */
+  box-shadow: 0 0 8px rgba(255, 107, 139, 0.2);
+}
+
+.buttonStyle {
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  /* Un dégradé super joyeux et romantique (corail vers rose) */
+  background: linear-gradient(135deg, #ff7e5f 0%, #ff6b8b 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 107, 139, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.buttonStyle:hover {
+  transform: translateY(-2px); /* Le bouton se soulève légèrement */
+  box-shadow: 0 6px 20px rgba(255, 107, 139, 0.4);
+}
+
+.centrage-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 35px;
+  color: #2c3e50;
+  font-family: "Georgia", "Times New Roman", serif; /* Style littéraire / dicton */
+  font-size: 30px;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+.linkContainerStyle {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px dashed #d1ccc0; /* Petite ligne de séparation poétique */
+  animation: fadeIn 0.5s ease-out;
+}
+
+.linkSubtitle {
+  font-family: "Georgia", serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Groupe qui aligne l'input et le bouton copier côte à côte */
+.inputCopyGroup {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Version modifiée de ton input pour la zone de lien */
+.linkInput {
+  flex: 1; /* Prend tout l'espace restant */
+  font-size: 13px !important;
+  color: #7f8c8d !important;
+  background-color: #f4efe6 !important; /* Un fond un peu plus sombre pour montrer que c'est grisé */
+  cursor: not-allowed;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Coupe proprement l'URL si elle est trop longue */
+}
+
+/* Bouton Copier chic */
+.copyButtonStyle {
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid #2c3e50;
+  background-color: #2c3e50;
+  color: #fdfbf7;
+  font-family: "Georgia", serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copyButtonStyle:hover {
+  background-color: #b33939;
+  border-color: #b33939;
+}
+
+/* Animation d'apparition fluide */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tiger-wrapper {
+  position: absolute;
+  bottom: 30%; /* Aligné à hauteur du formulaire */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5; /* Passe devant le fond blanc */
+  pointer-events: none;
+}
+
+.tiger-left {
+  left: 8%;
+}
+
+.tiger-right {
+  right: 8%;
+}
+
+/* Retourne le tigre de droite pour qu'il regarde vers le centre */
+.tiger-right .tiger-emoji {
+  transform: scaleX(-1);
+}
+
+.tiger-emoji {
+  font-size: 80px; /* Un gros tigre en dessin */
+  filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15));
+}
+
+/* --- LE SYSTÈME DE FLAMMES --- */
+.fire-burst {
+  position: absolute;
+  top: 40px; /* Positionné au niveau de la gueule de l'emoji */
+  width: 100px;
+  height: 100px;
+}
+
+/* Positionnement des flammes selon le côté */
+.tiger-left .fire-burst { left: 60px; }
+.tiger-right .fire-burst { right: 60px; }
+
+.flame-particle {
+  position: absolute;
+  background: radial-gradient(circle, #ff9f43 10%, #ff3300 70%, transparent 100%);
+  border-radius: 50%;
+  opacity: 0;
+  width: 30px;
+  height: 30px;
+}
+
+/* Animation asynchrone des flammes pour l'effet "qui apparaît et disparaît" */
+.flame-particle:nth-child(1) {
+  animation: cracherFeu 1.5s infinite ease-in-out;
+}
+.flame-particle:nth-child(2) {
+  animation: cracherFeu 1.8s infinite ease-in-out;
+  animation-delay: 0.4s;
+  width: 45px;
+  height: 45px;
+}
+.flame-particle:nth-child(3) {
+  animation: cracherFeu 1.2s infinite ease-in-out;
+  animation-delay: 0.8s;
+  width: 25px;
+  height: 25px;
+}
+
+/* --- ANIMATION DU FEU --- */
+@keyframes cracherFeu {
+  0% {
+    transform: translate(0, 0) scale(0.3);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.9; /* Le feu jaillit et apparaît */
+  }
+  100% {
+    /* Les flammes sont projetées vers le haut et le centre, puis disparaissent */
+    transform: translate(var(--dir-x, 40px), -60px) scale(1.4);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+/* Ajustement de la direction de projection des flammes pour le côté droit */
+.tiger-right .flame-particle {
+  --dir-x: -40px; /* Propulse vers la gauche */
+}
+
+
+
+/* --- PAGE SÉLECTION DE DATE --- */
+
+/* Le titre de la question */
+.date-title {
+  font-family: 'Comfortaa', 'Fredoka', 'Quicksand', sans-serif; /* Polices arrondies */
+  font-size: 28px;
+  color: #4a1525; /* Couleur prune/bordeaux très chic */
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Structure des champs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.input-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8a7a7a;
+  margin-bottom: 6px;
+  font-family: sans-serif;
+}
+
+.date-input {
+  position: relative; /* Nécessaire pour l'astuce */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px !important;
+  border: 1px solid #e8e2e2 !important;
+  border-radius: 15px !important;
+  background-color: #fcfbfa !important;
+  font-family: sans-serif;
+  color: #4a1525 !important;
+  font-size: 15px !important;
+  outline: none;
+  cursor: pointer;
+}
+
+/* 🌟 L'ASTUCE DU DATEPICKER : On force l'icône du calendrier à prendre TOUTE la place */
+.date-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent; /* Cache l'icône par défaut si besoin */
+  background: transparent; /* Rend le bouton invisible */
+  cursor: pointer;
+}
+
+.date-input:focus {
+  border-color: #ff94b3 !important; /* Lueur rose au clic */
+  background-color: #ffffff !important;
+}
+
+/* Le fameux bouton rose/fushia poudré de la capture */
+.date-button {
+  margin-top: 15px;
+  background: #ff94b3 !important; /* Rose poudré parfait */
+  color: #ffffff !important;
+  border-radius: 20px !important;
+  padding: 16px !important;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(255, 148, 179, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.date-button:hover {
+  background: #ff769f !important; /* Un peu plus foncé au survol */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 148, 179, 0.4) !important;
+}
+
+.date-button:active {
+  transform: translateY(1px);
+}
+
+/* --- GRILLE DE SÉLECTION DE NOURRITURE --- */
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+  gap: 16px; /* Espace entre les boutons */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Style de chaque bouton de nourriture */
+.food-card-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+  background-color: #f6f0f0; /* Fond grisé/rosé très clair comme sur la capture */
+  border: 2px solid transparent;
+  border-radius: 24px; /* Bords hyper arrondis */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Effet au survol */
+.food-card-button:hover {
+  transform: translateY(-3px);
+  background-color: #fdf8f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+}
+
+/* 🌟 STYLE QUAND L'OPTION EST SÉLECTIONNÉE */
+.food-card-button.active {
+  background-color: #ffffff !important;
+  border-color: #ff94b3 !important; /* Bordure rose poudré */
+  box-shadow: 0 10px 25px rgba(255, 148, 179, 0.25) !important;
+  transform: scale(1.03);
+}
+
+/* Taille des emojis à l'intérieur */
+.food-emoji {
+  font-size: 32px;
+  margin-bottom: 8px;
+  transition: transform 0.2s ease;
+}
+
+.food-card-button:hover .food-emoji {
+  transform: scale(1.15); /* Petit effet de zoom fun sur l'emoji au survol */
+}
+
+/* Libellé sous l'emoji */
+.food-label {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6a5156; /* Teinte douce assortie */
+}
+
+.food-card-button.active .food-label {
+  color: #4a1525;
+  font-weight: bold;
+}
+
+.foodContainer {
+  width: 100%;
+}
+
+/* --- RESPONSIVE : Si l'écran est petit (Mobile) --- */
+@media (max-width: 480px) {
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr); /* Passe en 2 colonnes sur téléphone */
+    gap: 12px;
+  }
+}

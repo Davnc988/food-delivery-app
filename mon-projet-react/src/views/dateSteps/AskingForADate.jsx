@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './App.css'
+import '../../App.css'
 
-const AskingForADate = () => {
+const AskingForADate = (props) => {
     // Stocke la position du bouton "Non" { x, y }
     // Au début, il est "null" pour rester sagement à sa place d'origine
     const [noBtnPosition, setNoBtnPosition] = useState(null);
@@ -47,17 +47,15 @@ const AskingForADate = () => {
                     className="catGif"
                 />
             </div>
-            <h1 className="central-card-title">🌸 Ça te dirait de dîner avec moi ? 🌸</h1>
+            <h1 className="central-card-title">{`🌸 Ça te dirait de dîner avec moi un soir ${props.myDateName} ? 🌸`}</h1>
             <div className="buttons-container">
-                {/* Bouton OUI : Fixe au centre */}
                 <button
                     className="btn btn-yes"
-                    onClick={() => alert('Yaaay ! 🌸🤍')}
+                    onClick={() => props.setIsYes(true)}
                 >
                     Oui... 🤍
                 </button>
 
-                {/* Bouton NON : Fugitif */}
                 <button
                     className="btn btn-no"
                     style={noBtnStyle}
