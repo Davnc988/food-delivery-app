@@ -5,12 +5,14 @@ import AskingForADate from './dateSteps/AskingForADate.jsx';
 import ReactionAfterSayingYes from './dateSteps/ReactionAfterSayingYes.jsx';
 import CollectDateAndTime from './dateSteps/CollectDateAndTime.jsx';
 import ChoseTheDinner from "./dateSteps/ChoseTheDinner.jsx";
+import DatingFormSummary from "./dateSteps/DatingFormSummary.jsx";
 
 function DateForm() {
     const canvasRef = useRef(null);
     const [isYes, setIsYes] = useState(false);
     const [startingPlanning, setStartingPlanning] = useState(false);
     const [isTimeToChoseTheFood, setIsTimeToChoseTheFood] = useState(false);
+    const [allInfosAreCollected, setAllInfosAreCollected] = useState(false);
     const [searchParams] = useSearchParams();
     const [formField, setFormField] = useState({
         mail: decodeURIComponent(escape(atob(searchParams.get('to')))),
@@ -136,28 +138,20 @@ function DateForm() {
         fontFamily: 'sans-serif',
     };
 
+    const renderStep = () => {
+        if (!isYes) return <AskingForADate setIsYes={setIsYes} myDateName={myDateName} />;
+        if (!startingPlanning) return <ReactionAfterSayingYes setStartingPlanning={setStartingPlanning} />;
+        if (!isTimeToChoseTheFood) return <CollectDateAndTime setIsTimeToChoseTheFood={setIsTimeToChoseTheFood} formField={formField} setFormField={setFormField} />;
+        if (!allInfosAreCollected) return <ChoseTheDinner formField={formField} setFormField={setFormField} setAllInfosAreCollected={setAllInfosAreCollected} />;
+
+        return <DatingFormSummary formField={formField} />;
+    };
+
     return (
         <div style={containerStyle}>
             <canvas ref={canvasRef} style={canvasStyle} />
             <div style={contentStyle}>
-                {!isYes ?
-                    <AskingForADate setIsYes={setIsYes} myDateName={myDateName}/>
-                    :
-                    !startingPlanning ?
-                        <ReactionAfterSayingYes setStartingPlanning={setStartingPlanning}/>
-                        :
-                        !isTimeToChoseTheFood ?
-                            <CollectDateAndTime
-                                setIsTimeToChoseTheFood={setIsTimeToChoseTheFood}
-                                formField={formField}
-                                setFormField={setFormField}
-                            />
-                            :
-                                <ChoseTheDinner
-                                    formField={formField}
-                                    setFormField={setFormField}
-                                />
-                }
+                {renderStep()}
             </div>
         </div>
     );

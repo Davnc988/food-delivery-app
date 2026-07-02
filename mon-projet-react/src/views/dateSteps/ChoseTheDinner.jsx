@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import Loader from './Loader';
 
 const ChoseTheDinner = (props) => {
     const [foodSelection, setFoodSelection] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const foodOptions = [
         { id: 'pizza', label: 'Pizza', emoji: '🍕' },
@@ -18,7 +20,7 @@ const ChoseTheDinner = (props) => {
     };
 
     const submitForm = async () => {
-        // Ton URL d'application Web Apps Script (parfaitement configurée !)
+        setLoading(true);
         const webAppUrl = "https://script.google.com/macros/s/AKfycbw5rhUnbZrBX1VoZhIfWyuH7gtpKL2I4bdpJbTvDPvinT0NIYEFNc_gEYkZ0tH5WEA-/exec";
 
         // Préparation des données d'invitation à envoyer au format JSON
@@ -32,7 +34,7 @@ const ChoseTheDinner = (props) => {
         try {
             console.log("Envoi des données en cours au Sheets... 🐯");
 
-            // Requête POST directe vers ton API Google Apps Script
+            Requête POST directe vers ton API Google Apps Script
             await fetch(webAppUrl, {
                 method: 'POST',
                 mode: 'no-cors', // Évite définitivement les erreurs CORS et 401/403 en local
@@ -41,8 +43,10 @@ const ChoseTheDinner = (props) => {
                 },
                 body: JSON.stringify(dataToSend)
             });
+            setLoading(false)
 
             console.log("Données enregistrées dans Google Sheets et e-mail envoyé ! 🔥🚀");
+            props.setAllInfosAreCollected(true)
 
         } catch (error) {
             console.error("Erreur technique lors de l'envoi :", error);
@@ -59,12 +63,13 @@ const ChoseTheDinner = (props) => {
                     </h2>
 
                     {/* Grille des choix de nourriture */}
-                    <div className="food-grid" style={{ width: '100%' }}>
+                    <div className="food-grid" style={{width: '100%'}}>
                         {foodOptions.map((option) => (
                             <button
+                                disabled={loading}
                                 key={option.id}
                                 type="button"
-                                onClick={() => handleSelectFood(option.id,option.label)}
+                                onClick={() => handleSelectFood(option.id, option.label)}
                                 className={`food-card-button ${foodSelection === option.id ? 'active' : ''}`}
                             >
                                 <span className="food-emoji">{option.emoji}</span>
@@ -75,12 +80,13 @@ const ChoseTheDinner = (props) => {
 
                     {foodSelection && (
                         <button
+                            disabled={loading}
                             type="button"
                             className="buttonStyle date-button"
-                            style={{ marginTop: '30px', width: '100%' }}
+                            style={{marginTop: '30px', width: '100%'}}
                             onClick={() => submitForm()}
                         >
-                            Vaaaaamos babe ! 🐯
+                            {loading ? <Loader/> : 'Vaaaaamos babe ! 🐯'}
                         </button>
                     )}
                 </div>

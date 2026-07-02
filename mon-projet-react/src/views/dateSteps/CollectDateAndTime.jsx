@@ -8,7 +8,7 @@ const CollectDateAndTime = (props) => {
 
     // 2. Date maximale de base : Aujourd'hui + 14 jours (2 semaines)
     const maxDate = new Date();
-    maxDate.setDate(aujourdhui.getDate() + 14);
+    maxDate.setDate(aujourdhui.getDate() + 21);
 
     // RÈGLE : Si la date max tombe en semaine (Lundi à Vendredi), on pousse jusqu'au week-end (Samedi)
     // En JavaScript : 0 = Dimanche, 1 = Lundi, ..., 5 = Vendredi, 6 = Samedi
@@ -64,10 +64,10 @@ const CollectDateAndTime = (props) => {
                         required
                     >
                         <option value="" disabled hidden>-- Select --</option>
-                        <option value="17h">17:00 - on mange avec les retraités</option>
-                        <option value="18h">18:00 - c'est le meilleur choix</option>
-                        <option value="19h">19:00 - on passe directement au plat de résistance...</option>
-                        <option value="20h">20:00 - je te sers un digestif ou un café ?</option>
+                        <option value="17h30">17:30 - on mange avec les retraités</option>
+                        <option value="18h30">18:30 - c'est le meilleur choix</option>
+                        <option value="19h30">19:30 - on passe directement au plat de résistance...</option>
+                        <option value="20h30">20:30 - je te sers un digestif ou un café ?</option>
                     </select>
                 </div>
 
