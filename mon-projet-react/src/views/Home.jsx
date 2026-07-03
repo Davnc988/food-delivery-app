@@ -1,39 +1,33 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../App.css'
+import '../App.css';
 
 const Form = () => {
     const [prenom, setPrenom] = useState('');
     const [email, setEmail] = useState('');
-
     const [generatedUrl, setGeneratedUrl] = useState('');
     const [isCopied, setIsCopied] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const prenomFormate = btoa(unescape(encodeURIComponent(prenom)));
         const emailFormate = btoa(unescape(encodeURIComponent(email)));
         const currentDomain = window.location.origin;
 
         const fullUrl = `${currentDomain}/form?for=${prenomFormate}&to=${emailFormate}`;
-
         setGeneratedUrl(fullUrl);
         setIsCopied(false);
     };
 
     const handleCopy = async () => {
         try {
-            // Utilisation de l'API moderne pour copier dans le presse-papier
             await navigator.clipboard.writeText(generatedUrl);
             setIsCopied(true);
-
-            // Petit reset du message "Copié !" après 3 secondes
             setTimeout(() => setIsCopied(false), 3000);
         } catch (err) {
             console.error("Impossible de copier le lien : ", err);
         }
     };
+
     return (
         <div className="central-card-container centrage-form">
             <div className="cardStyle">
@@ -42,7 +36,6 @@ const Form = () => {
                 </h2>
 
                 <form onSubmit={handleSubmit} className="formStyle" >
-
                     <input
                         type="text"
                         placeholder="Prénom de la personne à inviter"
@@ -84,8 +77,8 @@ const Form = () => {
                 )}
             </div>
         </div>
-    )
-}
+    );
+};
 
 const Home = () => {
 
@@ -112,7 +105,9 @@ const Home = () => {
                     <div className="flame-particle"></div>
                 </div>
             </div>
+
             <Form />
+
             {/* 🔥 FLAMMES À DROITE */}
             <div className="tiger-wrapper tiger-right">
                 <span className="tiger-emoji">🐯</span>
@@ -123,7 +118,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Home;

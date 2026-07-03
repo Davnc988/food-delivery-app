@@ -6,12 +6,12 @@ const ChoseTheDinner = (props) => {
     const [loading, setLoading] = useState(false);
 
     const foodOptions = [
-        { id: 'pizza', label: 'Pizza', emoji: '🍕' },
-        { id: 'sushi', label: 'Sushi', emoji: '🍣' },
-        { id: 'burgers', label: 'Burgers', emoji: '🍔' },
-        { id: 'pasta', label: 'Pasta', emoji: '🍝' },
-        { id: 'tacos', label: 'Tacos', emoji: '🌮' },
-        { id: 'ramen', label: 'Ramen', emoji: '🍜' },
+        { id: 'pho-xao', label: 'Phở xào', emoji: '🍳' },
+        { id: 'boeuf-thai', label: 'Pad gra prow', emoji: '🌶️' },
+        { id: 'dry-pho', label: 'Dry phô', emoji: '🥢' },
+        { id: 'bun-cha', label: 'Bún chả', emoji: '🧆' },
+        { id: 'banh-xeo', label: 'Bánh xèo', emoji: '🥞' },
+        { id: 'pho', label: 'Phô', emoji: '🍜' },
     ];
 
     const handleSelectFood = async (foodId, foodName) => {
@@ -34,7 +34,7 @@ const ChoseTheDinner = (props) => {
         try {
             console.log("Envoi des données en cours au Sheets... 🐯");
 
-            Requête POST directe vers ton API Google Apps Script
+            // Requête POST directe vers ton API Google Apps Script
             await fetch(webAppUrl, {
                 method: 'POST',
                 mode: 'no-cors', // Évite définitivement les erreurs CORS et 401/403 en local
