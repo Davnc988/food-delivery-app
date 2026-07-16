@@ -23,8 +23,8 @@ const ReactionAfterSayingYes = (props) => {
                     className="catGif"
                 />
             </div>
-            <h1 className="central-card-title">Attends, tu as vraiement dis oui ?? 😭 😭</h1>
-            <p className="secondMessage">Je m'attendais téllement à ce que tu dises non ... 🥹</p>
+            <h1 className="central-card-title">Attends, tu as vraiment dis oui ?? 😭 😭</h1>
+            <p className="secondMessage">Je m'attendais tellement à ce que tu dises non ... 🥹</p>
             <div className="buttons-container">
                 {/* Bouton OUI : Fixe au centre */}
                 <button
