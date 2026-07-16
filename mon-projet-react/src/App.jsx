@@ -5,7 +5,7 @@ import DateForm from './views/DateForm.jsx';
 function App() {
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/food-delivery-app">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/form" element={<DateForm />} />
