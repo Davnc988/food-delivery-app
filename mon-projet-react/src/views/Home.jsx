@@ -12,16 +12,15 @@ const Form = () => {
         const prenomFormate = btoa(unescape(encodeURIComponent(prenom)));
         const emailFormate = btoa(unescape(encodeURIComponent(email)));
 
-        // window.location.href contient l'URL complète actuelle (avec le sous-dossier)
-        // On utilise l'objet URL pour reconstruire proprement le chemin
         const currentUrl = new URL(window.location.href);
 
-        // On ajoute /form à la fin du dossier actuel, en évitant les doubles slashes
-        const baseDossier = currentUrl.pathname.endsWith('/') ? currentUrl.pathname : `${currentUrl.pathname}/`;
+        // On s'assure d'avoir la base propre (ex: https://davnc988.github.io/food-delivery-app/)
+        // Si l'URL actuelle contient déjà un '#', on le retire pour la construction
+        const baseUrl = currentUrl.origin + currentUrl.pathname;
+        const baseDossier = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
 
-        // Si tu utilises un routeur (comme React Router) en mode HashRouter,
-        // il faudra adapter le chemin (ex: `#/form?for=...`)
-        const fullUrl = `${currentUrl.origin}${baseDossier}form?for=${prenomFormate}&to=${emailFormate}`;
+        // On construit l'URL avec le système de Hash (#) requis pour GitHub Pages
+        const fullUrl = `${baseDossier}#/form?for=${prenomFormate}&to=${emailFormate}`;
 
         setGeneratedUrl(fullUrl);
         setIsCopied(false);
